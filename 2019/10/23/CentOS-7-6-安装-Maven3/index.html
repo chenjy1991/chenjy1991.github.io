@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux,服务器,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="如何在CentOS7.6中安装maven3">
+<meta name="keywords" content="Linux,服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 7.6 安装 Maven3">
+<meta property="og:url" content="http://chenjy1991.github.io/2019/10/23/CentOS-7-6-安装-Maven3/index.html">
+<meta property="og:site_name" content="非羽Army">
+<meta property="og:description" content="如何在CentOS7.6中安装maven3">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/4111421c-21eb-4307-802b-9ecd1e8789e1.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/b3035792-f9b5-4409-b797-a2c1a0113199.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/25d89b0c-25e6-492f-86d3-bcb3bb9f7e9a.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/6c26b719-258d-4bc1-9689-b9c3e33abdbd.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/3a01d875-1de1-4803-83aa-b0526b0a629b.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/8b261e01-8b27-45a4-aaeb-6f20c1443a30.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/3950aeb7-214f-4f80-a4ff-a9b4ec2f6525.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/7448f918-4f2a-421b-b800-418abf348b21.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/462b221c-2cb6-4667-a25b-9de39b6bc41f.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/5b60e43c-a2ed-4035-8ef9-6a678cb85a5d.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/2e451604-6896-48d6-9831-baf2440bdea5.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/0ed13d61-a03a-4db5-8e0c-f22fc893a781.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/ebdae42c-902e-40ac-bf07-b6ab0f302c48.png">
+<meta property="og:updated_time" content="2019-10-23T09:25:43.933Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS 7.6 安装 Maven3">
+<meta name="twitter:description" content="如何在CentOS7.6中安装maven3">
+<meta name="twitter:image" content="http://platform-oss.apitest.link/resources/blog_img/maven-setup/4111421c-21eb-4307-802b-9ecd1e8789e1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://chenjy1991.github.io/2019/10/23/CentOS-7-6-安装-Maven3/">
+
+
+
+
+
+  <title>CentOS 7.6 安装 Maven3 | 非羽Army</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?6852e6e6868e44a4f93c61a4439bfd17";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">非羽Army</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://chenjy1991.github.io/2019/10/23/CentOS-7-6-安装-Maven3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="非羽Army">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="非羽Army">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CentOS 7.6 安装 Maven3</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T14:37:31+08:00">
+                2019-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">服务器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>如何在CentOS7.6中安装maven3</p>
+<a id="more"></a>
+
+<h3 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h3><p>硬件环境：阿里云 1CPU 1G内存 20G硬盘<br>软件环境：CentOS 7.6</p>
+<h3 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h3><h4 id="下载maven3"><a href="#下载maven3" class="headerlink" title="下载maven3"></a>下载maven3</h4><p>直接于官网下载：<a href="http://maven.apache.org/download.cgi#" title="Apache Maven 3.6.2" target="_blank" rel="noopener">Apache Maven 3.6.2</a><br><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/4111421c-21eb-4307-802b-9ecd1e8789e1.png" alt="下载maven"></p>
+<h4 id="上传maven安装包"><a href="#上传maven安装包" class="headerlink" title="上传maven安装包"></a>上传maven安装包</h4><p>由于使用的是MacOS系统，这里使用 Transmit 这个软件进行文件上传,上传至<code>/data</code>目录<br><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/b3035792-f9b5-4409-b797-a2c1a0113199.png" alt="上传maven安装包"></p>
+<h3 id="安装maven"><a href="#安装maven" class="headerlink" title="安装maven"></a>安装maven</h3><h4 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h4><p>1.shell中进入<code>/data</code>目录，查看当前目录文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /data</span><br><span class="line"># ls</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/25d89b0c-25e6-492f-86d3-bcb3bb9f7e9a.png" alt="进入文件目录"><br>2.解压安装至<code>/usr/local/maven</code>目录下(该目录需要先创建)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mkdir /usr/local/maven</span><br><span class="line"># tar -zxvf jdk-8u231-linux-x64.tar.gz -C /usr/local/maven</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/6c26b719-258d-4bc1-9689-b9c3e33abdbd.png" alt="解压安装"><br>3.查看安装情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/maven</span><br><span class="line"># ls</span><br></pre></td></tr></table></figure>
+
+<p>此时，<code>/usr/local/maven/</code>目录下有个<code>apache-maven-3.6.2</code>文件夹，里面正是maven。此时，maven的安装地址即为<code>/usr/local/maven/apache-maven-3.6.2</code><br><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/3a01d875-1de1-4803-83aa-b0526b0a629b.png" alt="查看安装情况"></p>
+<h4 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h4><p>通过之前的步骤，maven已安装至系统中，但此时并不能正常使用，需要进行环境变量的配置，以使用maven的相关命令<br>1.修改<code>/etc/profile</code>文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/8b261e01-8b27-45a4-aaeb-6f20c1443a30.png" alt="修改环境变量文件"><br>2.将以下内容添加到文件末尾(如何使用vim进行文字操作，不在本文讨论范围)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_HOME=/usr/local/maven/apache-maven-3.6.2</span><br><span class="line">export PATH=$PATH:$MAVEN_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<p>修改后保存退出<br><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/3950aeb7-214f-4f80-a4ff-a9b4ec2f6525.png" alt="vim添加内容"><br>3.修改完环境变量，还需使用<code># source /etc/profile</code>命令，将其生效<br><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/7448f918-4f2a-421b-b800-418abf348b21.png" alt="生效环境变量"></p>
+<h3 id="验证安装结果"><a href="#验证安装结果" class="headerlink" title="验证安装结果"></a>验证安装结果</h3><p>经过以上步骤，maven已顺利安装至系统中，接下里，使用相关命令，验证maven是否安装成功<br>当出现相关版本信息时，即为安装成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mvn -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/462b221c-2cb6-4667-a25b-9de39b6bc41f.png" alt="验证安装结果"></p>
+<h3 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h3><p>安装完maven后，还需要对maven的配置文件进行相关设置，来更方便的使用<br>需要配置的文件为<code>/usr/local/maven/apache-maven-3.6.2/conf</code>目录下的<code>settings.xml</code>文件<br>这里使用vscode配合Transmit进行修改</p>
+<h4 id="本地仓库配置"><a href="#本地仓库配置" class="headerlink" title="本地仓库配置"></a>本地仓库配置</h4><p>将本地仓库配置在<code>/usr/local/maven/mavenRepository</code>目录下<br>创建<code>/usr/local/maven/mavenRepository</code>文件夹<br>在<code>settings</code>节点下添加<code>&lt;localRepository&gt;/home/mavenRepository&lt;/localRepository&gt;</code></p>
+<h4 id="国内镜像配置"><a href="#国内镜像配置" class="headerlink" title="国内镜像配置"></a>国内镜像配置</h4><p>由于maven中央库服务器不在国内，连接国漫，这里添加阿里云maven库，已方便使用<br>在<code>settings.mirrors</code>节点下添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;aliyunmaven&lt;/id&gt;</span><br><span class="line">    &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">    &lt;name&gt;阿里云公共仓库&lt;/name&gt;</span><br><span class="line">    &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;</span><br><span class="line">&lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置文件示例"><a href="#配置文件示例" class="headerlink" title="配置文件示例"></a>配置文件示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span><br><span class="line">          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">          xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;localRepository&gt;/usr/local/maven/mavenRepository&lt;/localRepository&gt;</span><br><span class="line">    &lt;pluginGroups&gt;</span><br><span class="line">    &lt;/pluginGroups&gt;</span><br><span class="line">    &lt;proxies&gt;</span><br><span class="line">    &lt;/proxies&gt;</span><br><span class="line">    &lt;servers&gt;</span><br><span class="line">    &lt;/servers&gt;</span><br><span class="line">    &lt;mirrors&gt;</span><br><span class="line">        &lt;mirror&gt;</span><br><span class="line">            &lt;id&gt;aliyunmaven&lt;/id&gt;</span><br><span class="line">            &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</span><br><span class="line">            &lt;name&gt;阿里云公共仓库&lt;/name&gt;</span><br><span class="line">            &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt;</span><br><span class="line">        &lt;/mirror&gt;</span><br><span class="line">    &lt;/mirrors&gt;</span><br><span class="line">    &lt;profiles&gt;</span><br><span class="line">    &lt;/profiles&gt;</span><br><span class="line">&lt;/settings&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/5b60e43c-a2ed-4035-8ef9-6a678cb85a5d.png" alt="配置文件示例"></p>
+<h3 id="验证安装结果-1"><a href="#验证安装结果-1" class="headerlink" title="验证安装结果"></a>验证安装结果</h3><p>经过以上步骤，maven已顺利安装至系统中，接下里，使用相关命令，验证maven是否安装成功<br>输入命令：<code>mvn help:system</code><br><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/2e451604-6896-48d6-9831-baf2440bdea5.png" alt="验证安装"><br><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/0ed13d61-a03a-4db5-8e0c-f22fc893a781.png" alt="验证结果"><br>此时，<code>/usr/local/maven/mavenRepository</code>目录下会出现相关依赖包<br><img src="http://platform-oss.apitest.link/resources/blog_img/maven-setup/ebdae42c-902e-40ac-bf07-b6ab0f302c48.png" alt="依赖包"></p>
+<h3 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h3><p>以上即为CentOS7.6安装maven3的详细过程</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/服务器/" rel="tag"># 服务器</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/23/CentOS-7-6-安装-JDK1-8/" rel="next" title="CentOS 7.6 安装 JDK1.8">
+                <i class="fa fa-chevron-left"></i> CentOS 7.6 安装 JDK1.8
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NTU4NS8yMjA5Ng"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="非羽Army">
+            
+              <p class="site-author-name" itemprop="name">非羽Army</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境信息"><span class="nav-number">1.</span> <span class="nav-text">环境信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装准备"><span class="nav-number">2.</span> <span class="nav-text">安装准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载maven3"><span class="nav-number">2.1.</span> <span class="nav-text">下载maven3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上传maven安装包"><span class="nav-number">2.2.</span> <span class="nav-text">上传maven安装包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装maven"><span class="nav-number">3.</span> <span class="nav-text">安装maven</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解压安装"><span class="nav-number">3.1.</span> <span class="nav-text">解压安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">设置环境变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证安装结果"><span class="nav-number">4.</span> <span class="nav-text">验证安装结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven配置"><span class="nav-number">5.</span> <span class="nav-text">Maven配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地仓库配置"><span class="nav-number">5.1.</span> <span class="nav-text">本地仓库配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#国内镜像配置"><span class="nav-number">5.2.</span> <span class="nav-text">国内镜像配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件示例"><span class="nav-number">5.3.</span> <span class="nav-text">配置文件示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证安装结果-1"><span class="nav-number">6.</span> <span class="nav-text">验证安装结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尾声"><span class="nav-number">7.</span> <span class="nav-text">尾声</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">非羽Army</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
