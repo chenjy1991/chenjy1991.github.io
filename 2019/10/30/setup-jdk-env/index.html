@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="服务器,软件安装,Linux,">
+  <meta name="keywords" content="MacOS,服务器,软件安装,">
 
 
 
@@ -79,30 +79,23 @@
 
 
 
-<meta name="description" content="如何在CentOS7.6中安装jdk1.8的环境">
-<meta name="keywords" content="服务器,软件安装,Linux">
+<meta name="description" content="如何在mac环境中快速切换各个jdk版本">
+<meta name="keywords" content="MacOS,服务器,软件安装">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS 7.6 安装 JDK1.8">
-<meta property="og:url" content="http://chenjy1991.github.io/2019/10/23/setup-jdk/index.html">
+<meta property="og:title" content="MacOS 环境下的 jdk 版本切换">
+<meta property="og:url" content="http://chenjy1991.github.io/2019/10/30/setup-jdk-env/index.html">
 <meta property="og:site_name" content="非羽Army">
-<meta property="og:description" content="如何在CentOS7.6中安装jdk1.8的环境">
+<meta property="og:description" content="如何在mac环境中快速切换各个jdk版本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/3b8d3ae8-e186-49db-a8eb-af8fbf429146.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/b7abd949-6194-4189-8f86-e142ba5c6d9b.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/2dc2e214-3e69-4768-9866-06acfee60ad1.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/e6160cef-220d-42c9-a039-08af05effd70.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/05acfb8b-1a1c-4197-b3b3-d40a2b53c080.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/8ef51191-0d5f-42f3-9e28-d24389a457bc.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/5b5cabf5-28f2-45fe-9741-5b6295fb1871.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/739850de-e720-43c5-be37-72607fdac1be.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/c1e5daaa-a068-4414-9d79-6425b8f3815f.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/11240abb-95d0-445c-88ec-456b7b27be9e.png">
-<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/1af103e5-a9f3-481a-9a8b-e0e20b7977b0.png">
-<meta property="og:updated_time" content="2019-10-24T05:56:24.702Z">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/d8af4479-1de4-4c93-a896-fcaed4a3ef8d.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/86ded71e-cb8d-4b54-8760-874f5a693037.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/3ecc68ac-96e8-4413-82bb-a1270f875f87.png">
+<meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/511d5838-6ddb-49ab-a596-8945a6925873.png">
+<meta property="og:updated_time" content="2019-10-30T08:52:47.588Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS 7.6 安装 JDK1.8">
-<meta name="twitter:description" content="如何在CentOS7.6中安装jdk1.8的环境">
-<meta name="twitter:image" content="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/3b8d3ae8-e186-49db-a8eb-af8fbf429146.png">
+<meta name="twitter:title" content="MacOS 环境下的 jdk 版本切换">
+<meta name="twitter:description" content="如何在mac环境中快速切换各个jdk版本">
+<meta name="twitter:image" content="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/d8af4479-1de4-4c93-a896-fcaed4a3ef8d.png">
 
 
 
@@ -132,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://chenjy1991.github.io/2019/10/23/setup-jdk/">
+  <link rel="canonical" href="http://chenjy1991.github.io/2019/10/30/setup-jdk-env/">
 
 
 
 
 
-  <title>CentOS 7.6 安装 JDK1.8 | 非羽Army</title>
+  <title>MacOS 环境下的 jdk 版本切换 | 非羽Army</title>
   
 
 
@@ -255,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenjy1991.github.io/2019/10/23/setup-jdk/">
+    <link itemprop="mainEntityOfPage" href="http://chenjy1991.github.io/2019/10/30/setup-jdk-env/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="非羽Army">
@@ -272,7 +265,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CentOS 7.6 安装 JDK1.8</h1>
+          <h1 class="post-title" itemprop="name headline">MacOS 环境下的 jdk 版本切换</h1>
         
 
         <div class="post-meta">
@@ -284,8 +277,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T14:37:10+08:00">
-                2019-10-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-30T16:29:49+08:00">
+                2019-10-30
               </time>
             
 
@@ -344,39 +337,20 @@
       
 
       
-        <p>如何在CentOS7.6中安装jdk1.8的环境</p>
+        <p>如何在mac环境中快速切换各个jdk版本</p>
 <a id="more"></a>
 
-<h3 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h3><p>硬件环境：阿里云 1CPU 1G内存 20G硬盘<br>软件环境：CentOS 7.6</p>
-<h3 id="安装准备"><a href="#安装准备" class="headerlink" title="安装准备"></a>安装准备</h3><h4 id="下载jdk1-8"><a href="#下载jdk1-8" class="headerlink" title="下载jdk1.8"></a>下载jdk1.8</h4><p>1.自行于Oracle官网下载 <a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" title="jdk1.8_231 x64" target="_blank" rel="noopener">oracle jdk1.8_231 x64</a><br><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/3b8d3ae8-e186-49db-a8eb-af8fbf429146.png" alt="下载tar格式的jdk安装包"><br>2.提供一个百度网盘下载地址：<a href="https://pan.baidu.com/s/1odRfOYgFeldnsQoe-BGpdA" title="jdk1.8_231 x64" target="_blank" rel="noopener">oracle jdk1.8_231 x64 百度云</a>  密码:<code>o73l</code> (如果链接失效，请在文章下留言)</p>
-<h4 id="检查是否已经安装了java"><a href="#检查是否已经安装了java" class="headerlink" title="检查是否已经安装了java"></a>检查是否已经安装了java</h4><p>命令 <code># java -version</code><br><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/b7abd949-6194-4189-8f86-e142ba5c6d9b.png" alt="检查是否已经安装了java"></p>
-<h4 id="检查系统-openJdk-安装情况"><a href="#检查系统-openJdk-安装情况" class="headerlink" title="检查系统 openJdk 安装情况"></a>检查系统 openJdk 安装情况</h4><p>有些Linux系统默认会安装OpenJdk，需要将其卸载，查看安装哪些些jdk<br>命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># rpm -qa|grep java</span><br><span class="line"># rpm -qa|grep jdk</span><br></pre></td></tr></table></figure>
+<h3 id="jdk的安装"><a href="#jdk的安装" class="headerlink" title="jdk的安装"></a>jdk的安装</h3><p>关于jdk的安装，这里略过，推荐开个小飞机前往官网下载</p>
+<p>这里提供jdk11的百度盘地址<a href="https://pan.baidu.com/s/14cgpBvGDQUrPgXI2KSDYQA" title="jdk11百度云盘下载" target="_blank" rel="noopener">jdk11</a>，密码:<code>ghkr</code>。</p>
+<p>安装过程不表，全部下一步直至完成。</p>
+<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>以下内容以系统内有 jdk1.8 与 jdk11 两个版本为例</p>
+<p>这里就是重点开始，首先查看当前的java版本，命令<code># java -version</code>与<code># javac -version</code>，结果如下：<br><img src="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/d8af4479-1de4-4c93-a896-fcaed4a3ef8d.png" alt="当前jdk版本"></p>
+<p>使用vim编辑<code>~/.bash_profile</code>文件<code># vim ~/.bash_profile</code><br>添加如下内容(jdk9起，版本号填9 而不是1.9)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_8_HOME=&quot;$(/usr/libexec/java_home -v 1.8)&quot;</span><br><span class="line">export JAVA_11_HOME=&quot;$(/usr/libexec/java_home -v 11)&quot;</span><br><span class="line"></span><br><span class="line">alias jdk8=&apos;export JAVA_HOME=$JAVA_8_HOME&apos;</span><br><span class="line">alias jdk11=&apos;export JAVA_HOME=$JAVA_11_HOME&apos;</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=$JAVA_8_HOME</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/2dc2e214-3e69-4768-9866-06acfee60ad1.png" alt="检查系统 openJdk 安装情况"></p>
-<h4 id="上传jdk安装包"><a href="#上传jdk安装包" class="headerlink" title="上传jdk安装包"></a>上传jdk安装包</h4><p>由于使用的是MacOS系统，这里使用 Transmit 这个软件进行文件上传,上传至<code>/data</code>目录<br><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/e6160cef-220d-42c9-a039-08af05effd70.png" alt="上传jdk安装包"></p>
-<h3 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h3><h4 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h4><p>1.shell中进入<code>/data</code>目录，查看当前目录文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /data</span><br><span class="line"># ls</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/05acfb8b-1a1c-4197-b3b3-d40a2b53c080.png" alt="进入文件目录"><br>2.解压安装至<code>/usr/local/java</code>目录下(该目录需要先创建)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mkdir /usr/local/java</span><br><span class="line"># tar -zxvf jdk-8u231-linux-x64.tar.gz -C /usr/local/java</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/8ef51191-0d5f-42f3-9e28-d24389a457bc.png" alt="解压安装"><br>3.查看安装情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># cd /usr/local/java</span><br><span class="line"># ls</span><br></pre></td></tr></table></figure>
-
-<p>此时，<code>/usr/local/java/</code>目录下有个<code>jdk1.8.0_231</code>文件夹，里面正是jdk。此时，jdk的安装地址即为<code>/usr/local/java/jdk1.8.0_231</code><br><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/5b5cabf5-28f2-45fe-9741-5b6295fb1871.png" alt="查看安装情况"></p>
-<h4 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h4><p>通过之前的步骤，jdk已安装至系统中，但此时并不能正常使用，需要进行环境变量的配置，以使用<code>java</code>命令<br>1.修改<code>/etc/profile</code>文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/739850de-e720-43c5-be37-72607fdac1be.png" alt="修改环境变量文件"><br>2.将以下内容添加到文件末尾(如何使用vim进行文字操作，不在本文讨论范围)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/local/java/jdk1.8.0_231</span><br><span class="line">PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export  PATH JAVA_HOME CLASSPATH</span><br></pre></td></tr></table></figure>
-
-<p>修改后保存退出<br><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/c1e5daaa-a068-4414-9d79-6425b8f3815f.png" alt="vim添加内容"><br>3.修改完环境变量，还需使用<code># source /etc/profile</code>命令，将其生效<br><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/11240abb-95d0-445c-88ec-456b7b27be9e.png" alt="生效环境变量"></p>
-<h3 id="验证安装结果"><a href="#验证安装结果" class="headerlink" title="验证安装结果"></a>验证安装结果</h3><p>经过以上步骤，jdk已顺利安装至系统中，接下里，使用相关命令，验证jdk是否安装成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># java -version</span><br><span class="line"># javac -version</span><br></pre></td></tr></table></figure>
-
-<p>当以上两个命令均能显示 jdk 版本信息时，表示jdk已顺利安装<br><img src="http://platform-oss.apitest.link/resources/blog_img/jdk-setup/1af103e5-a9f3-481a-9a8b-e0e20b7977b0.png" alt="验证安装结果"></p>
-<h3 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h3><p>以上即为CentOS7.6安装jdk1.8的详细过程。</p>
+<p><img src="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/86ded71e-cb8d-4b54-8760-874f5a693037.png" alt="添加环境变量"></p>
+<p>添加完之后，使用<code># source ~/.bash_profile</code>使修改的内容生效</p>
+<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>当我们要切换版本为1.8时，只需要输入命令<code># jdk8</code>即可，效果如下：<br><img src="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/3ecc68ac-96e8-4413-82bb-a1270f875f87.png" alt="切换jdk8效果"><br>切换回jdk11的效果如下：<br><img src="http://platform-oss.apitest.link/resources/blog_img/setup-jdk-env/511d5838-6ddb-49ab-a596-8945a6925873.png" alt="切换jdk11效果"></p>
 
       
     </div>
@@ -394,11 +368,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/MacOS/" rel="tag"># MacOS</a>
+          
             <a href="/tags/服务器/" rel="tag"># 服务器</a>
           
             <a href="/tags/软件安装/" rel="tag"># 软件安装</a>
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
       
@@ -411,8 +385,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/14/setup-oracle/" rel="next" title="记录CentOS 7.6 命令行安装 Oracle 11g过程">
-                <i class="fa fa-chevron-left"></i> 记录CentOS 7.6 命令行安装 Oracle 11g过程
+              <a href="/2019/10/24/setup-rocketmq_1/" rel="next" title="CentOS 7.6 安装RocketMQ4.5.2(一)">
+                <i class="fa fa-chevron-left"></i> CentOS 7.6 安装RocketMQ4.5.2(一)
               </a>
             
           </div>
@@ -420,10 +394,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/23/setup-maven/" rel="prev" title="CentOS 7.6 安装 Maven3">
-                CentOS 7.6 安装 Maven3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -562,7 +532,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境信息"><span class="nav-number">1.</span> <span class="nav-text">环境信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装准备"><span class="nav-number">2.</span> <span class="nav-text">安装准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载jdk1-8"><span class="nav-number">2.1.</span> <span class="nav-text">下载jdk1.8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查是否已经安装了java"><span class="nav-number">2.2.</span> <span class="nav-text">检查是否已经安装了java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查系统-openJdk-安装情况"><span class="nav-number">2.3.</span> <span class="nav-text">检查系统 openJdk 安装情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#上传jdk安装包"><span class="nav-number">2.4.</span> <span class="nav-text">上传jdk安装包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装jdk"><span class="nav-number">3.</span> <span class="nav-text">安装jdk</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解压安装"><span class="nav-number">3.1.</span> <span class="nav-text">解压安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置环境变量"><span class="nav-number">3.2.</span> <span class="nav-text">设置环境变量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证安装结果"><span class="nav-number">4.</span> <span class="nav-text">验证安装结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尾声"><span class="nav-number">5.</span> <span class="nav-text">尾声</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#jdk的安装"><span class="nav-number">1.</span> <span class="nav-text">jdk的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境配置"><span class="nav-number">2.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果"><span class="nav-number">3.</span> <span class="nav-text">效果</span></a></li></ol></div>
             
 
           </div>
