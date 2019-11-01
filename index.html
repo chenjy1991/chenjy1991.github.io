@@ -331,27 +331,14 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。</p>
-<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>Nacos 采用下载release包下载运行的模式，修改部分配置信息，即可运行。<br>首先前往Github上的Nacos项目，进行release包下载。地址：<a href="https://github.com/alibaba/nacos/releases" target="_blank" rel="noopener">Nacos_release</a><br>当前的最新版本为1.1.4，下载最新版本<br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/312f9038-0182-4ef8-9867-d90e77e12f5e.png" alt="Nacos_release"></p>
-<h3 id="单机部署"><a href="#单机部署" class="headerlink" title="单机部署"></a>单机部署</h3><p>由于各种各样的原因，服务器必然存在的宕机的风险，显然，单机部署微服务的注册中心，并不是一个好的选择。但是这里还是将部署方式记录。<br>方法也非常简单，使用命令<code># sh startup.sh -m standalone</code>启动<code>bin</code>目录下的<code>startup.sh</code><br>启动后可在<code>http://localhost:8848/nacos</code>查看控制台界面,默认账号密码均为<code>nacos</code><br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/354f045f-4a21-4929-80d3-cffe46dde0aa.png" alt="登录界面"><br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/ad66d22d-6081-4050-b0da-c99c43bd60c2.png" alt="控制台界面"></p>
-<h3 id="集群部署"><a href="#集群部署" class="headerlink" title="集群部署"></a>集群部署</h3><p>这里将Nacos以集群的方式部署与服务器上<br>准备了三台服务器资源(虚拟)<br>172.0.0.1<br>172.0.1.1<br>172.0.2.1</p>
-<h4 id="使用MYSql数据库"><a href="#使用MYSql数据库" class="headerlink" title="使用MYSql数据库"></a>使用MYSql数据库</h4><p>Nacos默认使用本地的文件数据库,同时支持mysql。<br>在<code>/nacos/conf</code>目录下有一个<code>nacos-mysql.sql</code>文件，建立一个mysql的数据库，名字这里取为<code>nacos</code>，以此sql文件初始化数据库<br>这里以<code>myslq.chenjy.cn</code>为数据地址作为后面的配置选项<br>打开<code>/nacos/conf</code>下的<code>application.properties</code>，添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spring.datasource.platform=mysql</span><br><span class="line">db.num=1</span><br><span class="line">db.url.0=jdbc:mysql://myslq.chenjy.cn:3306/nacos?characterEncoding=utf8&amp;connectTimeout=1000&amp;socketTimeout=3000&amp;autoReconnect=true</span><br><span class="line">db.user=nacos</span><br><span class="line">db.password=nacos</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/73dee663-4c58-4a87-bcfd-ec5a9a79bbba.png" alt="数据库配置"></p>
-<h4 id="配置文件修改"><a href="#配置文件修改" class="headerlink" title="配置文件修改"></a>配置文件修改</h4><p>将<code>nacos</code>文件夹上传至服务器，这里是上传到<code>/data/app</code>目录<br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/82ffc3e5-cb5a-44d2-b11f-1193baca0631.png" alt="上传nacos"><br>在<code>/nacos/conf</code>目录下添加一个新文件<code>cluster.conf</code>,填入我们计划的3个节点地址:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">172.0.0.1:8848</span><br><span class="line">172.0.1.1:8848</span><br><span class="line">172.0.2.1:8848</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/d35e14a2-0499-4f7c-b741-f2b10be0afff.png" alt="填入节点地址"><br>在<code>/nacos/bin</code>目录的启动文件<code>startup.sh</code>修改配置IP配置(云服务主机会取得内网ip，而这个无法公网使用)，添加<code>JAVA_OPT=&quot;${JAVA_OPT} -Dnacos.server.ip=121.40.236.216&quot;</code><br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/3d9717a6-56f1-4436-a5d5-8df50d262f1b.png" alt="修改ip配置"><br>笔者有一个服务器是1核1G内存，启动报错，修改相关启动配置：<br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/48c88a1d-b110-43dd-988e-09a70013c393.png" alt="修改内存配置"></p>
-<h4 id="启动项目"><a href="#启动项目" class="headerlink" title="启动项目"></a>启动项目</h4><p>使用命令<code># sh startup.sh</code>启动Nacos，此时不需要填写参数，默认就是以集群方式启动<br>此时可以分别在<code>http://172.0.0.1:8848/nacos</code>、<code>http://172.0.1.1:8848/nacos</code>、<code>http://172.0.2.1:8848/nacos</code>中进入Nacos控制台。</p>
-<h2 id="Nginx负载配置"><a href="#Nginx负载配置" class="headerlink" title="Nginx负载配置"></a>Nginx负载配置</h2><p>此时，Nacos已经以集群模式部署，但显然，我们需要有一个统一的入口进入。<br>Nginx负载均衡便进入视野。<br>nginx添加配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">upstream nacosserver &#123;</span><br><span class="line">    ip_hash;</span><br><span class="line">    server 172.0.0.1:8848;</span><br><span class="line">    server 172.0.1.1:8848;</span><br><span class="line">    server 172.0.2.1:8848;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name nacos.chenjy.cn;</span><br><span class="line">    location / &#123;  </span><br><span class="line">        proxy_pass http://nacosserver/nacos/;</span><br><span class="line">        proxy_set_header Host $host:80;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/b0d581d5-e5a4-4b7d-b2ef-172cdd5aef41.png" alt="nginx配置"></p>
-<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p>以上便是Nacos的集群部署</p>
-
-          
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/01/java-nacos-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

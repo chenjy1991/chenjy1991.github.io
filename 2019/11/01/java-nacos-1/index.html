@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="前言随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。 部署下载安装包Nacos 采用下载release包下载运行的模式，修改部分配置信息，即可运行。首先前往Github上的Nacos项目，进行release包下载。地址：Na">
+<meta name="description" content="前言随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。">
 <meta name="keywords" content="Java,微服务,nacos">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里Nacos集群模式配置">
 <meta property="og:url" content="http://chenjy1991.github.io/2019/11/01/java-nacos-1/index.html">
 <meta property="og:site_name" content="非羽Army">
-<meta property="og:description" content="前言随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。 部署下载安装包Nacos 采用下载release包下载运行的模式，修改部分配置信息，即可运行。首先前往Github上的Nacos项目，进行release包下载。地址：Na">
+<meta property="og:description" content="前言随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/312f9038-0182-4ef8-9867-d90e77e12f5e.png">
 <meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/354f045f-4a21-4929-80d3-cffe46dde0aa.png">
@@ -96,10 +96,10 @@
 <meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/3d9717a6-56f1-4436-a5d5-8df50d262f1b.png">
 <meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/48c88a1d-b110-43dd-988e-09a70013c393.png">
 <meta property="og:image" content="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/b0d581d5-e5a4-4b7d-b2ef-172cdd5aef41.png">
-<meta property="og:updated_time" content="2019-11-01T09:03:44.649Z">
+<meta property="og:updated_time" content="2019-11-01T09:05:32.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里Nacos集群模式配置">
-<meta name="twitter:description" content="前言随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。 部署下载安装包Nacos 采用下载release包下载运行的模式，修改部分配置信息，即可运行。首先前往Github上的Nacos项目，进行release包下载。地址：Na">
+<meta name="twitter:description" content="前言随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。">
 <meta name="twitter:image" content="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/312f9038-0182-4ef8-9867-d90e77e12f5e.png">
 
 
@@ -343,6 +343,8 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>随着Eureka的闭源，选择新的微服务注册中心也提上了日程，在众多开源项目的选择中，这里选择由阿里开源的Nacos作为今后项目的注册与服务配置中心，本文着重与Nacos的配置使用及集群部署，附集群部署后的nginx负载配置。</p>
+<a id="more"></a>
+
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>Nacos 采用下载release包下载运行的模式，修改部分配置信息，即可运行。<br>首先前往Github上的Nacos项目，进行release包下载。地址：<a href="https://github.com/alibaba/nacos/releases" target="_blank" rel="noopener">Nacos_release</a><br>当前的最新版本为1.1.4，下载最新版本<br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/312f9038-0182-4ef8-9867-d90e77e12f5e.png" alt="Nacos_release"></p>
 <h3 id="单机部署"><a href="#单机部署" class="headerlink" title="单机部署"></a>单机部署</h3><p>由于各种各样的原因，服务器必然存在的宕机的风险，显然，单机部署微服务的注册中心，并不是一个好的选择。但是这里还是将部署方式记录。<br>方法也非常简单，使用命令<code># sh startup.sh -m standalone</code>启动<code>bin</code>目录下的<code>startup.sh</code><br>启动后可在<code>http://localhost:8848/nacos</code>查看控制台界面,默认账号密码均为<code>nacos</code><br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/354f045f-4a21-4929-80d3-cffe46dde0aa.png" alt="登录界面"><br><img src="http://platform-oss.apitest.link/resources/blog_img/java-nacos_1/ad66d22d-6081-4050-b0da-c99c43bd60c2.png" alt="控制台界面"></p>
 <h3 id="集群部署"><a href="#集群部署" class="headerlink" title="集群部署"></a>集群部署</h3><p>这里将Nacos以集群的方式部署与服务器上<br>准备了三台服务器资源(虚拟)<br>172.0.0.1<br>172.0.1.1<br>172.0.2.1</p>
