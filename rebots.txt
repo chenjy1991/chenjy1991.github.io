@@ -10,3 +10,4 @@ Disallow: /vendors/
 Disallow: /fancybox/
 
 Sitemap: http://blog.chenjy.cn/sitemap.xml
+Sitemap: http://blog.chenjy.cn/baidusitemap.xml
